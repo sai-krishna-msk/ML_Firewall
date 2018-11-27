@@ -21,7 +21,7 @@ python  vul.py
 ```
 and do some hacking,
 
-### SQL injections:
+### SQL injections: 
 
 - These are just some of SQL keywords/operations which we are going to take advantage of , (I am not teaching SQL injection here since it out of the scope of this project)
 
