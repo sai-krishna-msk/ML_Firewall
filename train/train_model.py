@@ -26,5 +26,5 @@ pipeline.fit(df['payload'], df['is_malicious'])
 ''' for saving the model, we dont use pickle because we have save the state of the model not only the weights'''
 from sklearn.externals import joblib
 
-joblib.dump(pipeline, 'filename.pkl', compress = 1)
+joblib.dump(pipeline, 'model.pkl', compress = 1)
 
