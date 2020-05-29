@@ -1,6 +1,6 @@
 
 
-## **This repo consists material covered in null chapters seminar on application of ML on network security**
+## **This repo consists of material covered in null chapters seminar taken on application of ML on network security**
 
 In case you've never heard or need a refresher on [SQL Injections](https://www.youtube.com/watch?v=ciNHn38EyRc) or [XSS](https://www.youtube.com/watch?v=L5l9lSnNMxg)
 
@@ -10,7 +10,7 @@ In case you've never heard or need a refresher on [SQL Injections](https://www.y
 
 - **Context**
 
-- **SQL Material **
+- **SQL Material**
 
 - **Training**
 
