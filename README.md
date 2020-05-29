@@ -1,26 +1,62 @@
-I've trained a model Machine learning model which will protect websites from XSS attacks and SQL injections
+
+
+## **This repo consists material covered in null chapters seminar on application of ML on network security**
+
+In case you've never heard or need a refresher on [SQL Injections](https://www.youtube.com/watch?v=ciNHn38EyRc) or [XSS](https://www.youtube.com/watch?v=L5l9lSnNMxg)
 
 
 
-If you have no idea what SQL injections are click  [here](https://www.youtube.com/watch?v=ciNHn38EyRc) to know about XSS click [here](https://www.youtube.com/watch?v=L5l9lSnNMxg) 
+# Contents
 
-How it does is when ever a user sends a post request to the server before it getting parsed into an SQL query by the respective backend it sends it to the model which I have trained it data(containing a bunch of positive and negative samples of SQL and XSS attacks), So this model classifies it into a safe or malicious request, If it is safe then it proceeds or a default message pops in 
+- **Context**
 
-### Implementation
+- **SQL Material **
 
-- For the purpose of demonstration I am using the template which is a backend built intentionally to test SQL injections which I got it from Jason [here](https://github.com/JasonHinds13/hackable) (*with permission*) 
+- **Training**
 
-- To test this demo website without the model you can fire up the server by navigating to the deploy folder and run
+- **Demo**
 
-  ```
-  python  vul.py
-  ```
 
-  and possibly run some SQL injections like(I am not teaching this are for testing purposes) I recommend you to visit the Repository of Jason for details regarding the template which I provided
+
+# Context
+
+As SQL injections simply are strings, ML model(NLP based) was trained to classify between valid user requests and user requests consisting of SQL injections or XSS attacks
+
+Trained model is embedded into a Flask Server before a user request is used to run the SQL query server validates or sanitizes the user request by sending it to the model which then classifies thus protecting Web-Apps from malicious attacks
+
+
+
+# SQL Material
+
+**Material Used in the seminar is present in [SQL_practise](https://github.com/sai-krishna-msk/ML_Firewall/tree/master/SQL_practise) in markdown format**
+
+
+
+## Training
+
+**Code for model trained in the seminar along with the dataset are present in  [train](https://github.com/sai-krishna-msk/ML_Firewall/tree/master/train)**
+
+# Demo
+
+- Flask-App used in the demo, was specifically built to test SQL injections and is borrowed from [Jason](https://github.com/JasonHinds13/hackable) (*with permission to use it*) 
 
   
 
-  - For printing out all the elements in the present table
+- To test the demo website without the model you can fire up the server by navigating to the [deploy](https://github.com/sai-krishna-msk/ML_Firewall/tree/master/deploy) folder and run
+
+  ```bash
+  python  vul.py
+  ```
+
+  
+
+  Open the web app in the browser and try to get sensitive information through SQL injections, a few examples are given below
+
+  
+
+  
+
+  - For printing out all the elements present in the table
 
   ```sqlite
   %'--;
@@ -28,7 +64,7 @@ How it does is when ever a user sends a post request to the server before it get
 
   <br>
 
-  - For Checking if you can actually Penetrate into the system using the table sql_master
+  - For Checking if you can actually Penetrate into the system query the master_table 
 
   ```sqlite
   juice' UNION SELECT 1,2,3 from sqlite_master WHERE type="table"; --
@@ -52,12 +88,9 @@ How it does is when ever a user sends a post request to the server before it get
 
   
 
-- After you have seen the possible exploits test it with the model by quitting the present server and running server with the model 
+- After witnessing the  possible exploits, Stop the current server and test it with server equipped with ML model
 
   ```python
   python mlFirewall.py
   ```
 
-### Note:
-
-- For making it more understandable  when every you enter name of a product, The SQL query which the server is going to send to the database is being appended to the file names "test.sql"  (You can see in Realtime how your enter is going to effect the SQL query)
